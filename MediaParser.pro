@@ -98,4 +98,4 @@ HEADERS += \
     src/mov/EditListBox.h
 
 FORMS += \
-    src/MainWindow.ui
+    src/mainwindow.ui

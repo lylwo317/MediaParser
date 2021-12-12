@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <cstring>
 #include "Mp4Parser.h"
 #include "BaseBox.h"
 #include "DefaultContainerBox.h"

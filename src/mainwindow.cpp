@@ -112,7 +112,7 @@ void MainWindow::displayHexFromReader(class FileReader* reader, int start, int l
 {
     unsigned char* buffer = new unsigned char[len];
     reader->SetPos(start);
-    reader->ReadBuffer((char*)buffer, len);
+    int readSize = reader->ReadBuffer((char*)buffer, len);
     this->displayHex(buffer, len);
     delete[] buffer;
     setHighlight(0, 0);
@@ -138,9 +138,9 @@ void MainWindow::displayHex(unsigned char* pData, int len)
         for(int j=0;j<num;j++)
         {
             QString tmp;
-            tmp.sprintf("%02X ", pData[index]);
+            tmp = QString("%1 ").arg(pData[index], 2, 16, QChar('0'));
             str1.append(tmp);
-            tmp.sprintf("%c", get_printable_char(pData[index]));
+            tmp = QString("%1 ").arg(get_printable_char(pData[index]));
             str2.append(tmp);
             index++;
         }
